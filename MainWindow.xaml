@@ -1,0 +1,38 @@
+﻿<Window x:Class="HeroArena.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Hero Arena - Select Your Hero" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="#1e1e1e">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Liste des héros -->
+        <StackPanel Grid.Column="0" Margin="20">
+            <TextBlock Text="CHOISIR UN HÉROS" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,20"/>
+            <ListBox x:Name="HeroListBox" Height="400" Background="#2d2d2d" Foreground="White" SelectionChanged="HeroListBox_SelectionChanged">
+                <ListBoxItem Content="Warrior" Background="#4CAF50"/>
+                <ListBoxItem Content="Mage" Background="#2196F3"/>
+                <ListBoxItem Content="Assassin" Background="#FF5722"/>
+            </ListBox>
+            <Button Content="Combattre!" Height="50" Background="#4CAF50" Foreground="White" FontSize="16" Margin="0,20,0,0" Click="StartBattle_Click" Cursor="Hand"/>
+        </StackPanel>
+
+        <!-- Détails du héros -->
+        <StackPanel Grid.Column="1" Margin="20">
+            <TextBlock Text="DÉTAILS" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,20"/>
+            <TextBlock Text="Nom:" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="HeroNameText" Text="-" Foreground="#4CAF50" FontSize="16" Margin="0,0,0,15"/>
+
+            <TextBlock Text="HP:" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="HeroHPText" Text="-" Foreground="#4CAF50" FontSize="16" Margin="0,0,0,15"/>
+
+            <TextBlock Text="Sorts:" Foreground="White" FontWeight="Bold" Margin="0,0,0,10"/>
+            <ListBox x:Name="SpellListBox" Height="250" Background="#2d2d2d" Foreground="White">
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Window>

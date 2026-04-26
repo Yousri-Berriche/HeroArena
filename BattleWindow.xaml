@@ -1,0 +1,54 @@
+﻿<Window x:Class="HeroArena.BattleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Hero Arena - Battle" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="#1e1e1e">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+
+        <!-- Arène -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+            <!-- Joueur -->
+            <StackPanel Width="300" Margin="20">
+                <TextBlock Text="TON HÉROS" FontSize="18" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                <TextBlock x:Name="PlayerHeroName" Text="-" FontSize="16" Foreground="#4CAF50" TextAlignment="Center" Margin="0,10,0,10"/>
+                <ProgressBar x:Name="PlayerHPBar" Height="30" Background="#555" Foreground="#4CAF50" Value="100" Margin="0,0,0,10"/>
+                <TextBlock x:Name="PlayerHPText" Text="150/150 HP" FontSize="12" Foreground="White" TextAlignment="Center"/>
+            </StackPanel>
+
+            <!-- vs -->
+            <TextBlock Text="VS" FontSize="28" FontWeight="Bold" Foreground="Red" VerticalAlignment="Center" Margin="40,0"/>
+
+            <!-- Ennemi -->
+            <StackPanel Width="300" Margin="20">
+                <TextBlock Text="ENNEMI" FontSize="18" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                <TextBlock x:Name="EnemyHeroName" Text="-" FontSize="16" Foreground="#FF5722" TextAlignment="Center" Margin="0,10,0,10"/>
+                <ProgressBar x:Name="EnemyHPBar" Height="30" Background="#555" Foreground="#FF5722" Value="100" Margin="0,0,0,10"/>
+                <TextBlock x:Name="EnemyHPText" Text="150/150 HP" FontSize="12" Foreground="White" TextAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Sorts et boutons -->
+        <StackPanel Grid.Row="1" Margin="20">
+            <TextBlock Text="CHOISIS UN SORT" FontSize="14" FontWeight="Bold" Foreground="White" Margin="0,0,0,10"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" x:Name="Spell1Button" Content="Spell 1" Height="50" Background="#4CAF50" Foreground="White" Click="Spell_Click" Margin="5"/>
+                <Button Grid.Column="1" x:Name="Spell2Button" Content="Spell 2" Height="50" Background="#4CAF50" Foreground="White" Click="Spell_Click" Margin="5"/>
+                <Button Grid.Column="2" x:Name="Spell3Button" Content="Spell 3" Height="50" Background="#4CAF50" Foreground="White" Click="Spell_Click" Margin="5"/>
+                <Button Grid.Column="3" x:Name="Spell4Button" Content="Spell 4" Height="50" Background="#4CAF50" Foreground="White" Click="Spell_Click" Margin="5"/>
+            </Grid>
+            <TextBlock x:Name="BattleLogText" Text="Combat commence!" FontSize="12" Foreground="White" Margin="0,10,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
