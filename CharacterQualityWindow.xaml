@@ -1,0 +1,34 @@
+﻿<Window x:Class="HeroArena.CharacterQualityWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Qualité du Personnage" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="#1e1e1e">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Infos du perso -->
+        <StackPanel Grid.Column="0" Margin="20">
+            <TextBlock Text="TON PERSONNAGE" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,20"/>
+            <TextBlock Text="Nom:" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="CharacterNameText" Text="-" Foreground="#4CAF50" FontSize="16" Margin="0,0,0,15"/>
+
+            <TextBlock Text="Classe:" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="CharacterClassText" Text="-" Foreground="#4CAF50" FontSize="16" Margin="0,0,0,15"/>
+
+            <TextBlock Text="HP:" Foreground="White" FontWeight="Bold"/>
+            <TextBlock x:Name="CharacterHPText" Text="-" Foreground="#4CAF50" FontSize="16" Margin="0,0,0,20"/>
+
+            <Button Content="▶ Commencer l'aventure!" Height="50" Background="#4CAF50" Foreground="White" FontSize="16" Click="StartAdventureButton_Click" Cursor="Hand"/>
+        </StackPanel>
+
+        <!-- Spells disponibles -->
+        <StackPanel Grid.Column="1" Margin="20">
+            <TextBlock Text="TES SPELLS" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,20"/>
+            <ListBox x:Name="SpellListBox" Height="400" Background="#2d2d2d" Foreground="White"/>
+        </StackPanel>
+    </Grid>
+</Window>

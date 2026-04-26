@@ -17,14 +17,52 @@ namespace HeroArena
             LoadHeroList();
         }
 
+        private bool VerifyConnection()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=ExerciceHero;Trusted_Connection=true;"))
+                {
+                    conn.Open();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         private void InitializeHeroes()
         {
-            heroes = new Dictionary<string, (int, List<string>)>
+            heroes = new Dictionary<string, (int, List<string>)>();
+
+            try
             {
-                { "Warrior", (150, GetSpellsFromDB("Warrior")) },
-                { "Mage", (100, GetSpellsFromDB("Mage")) },
-                { "Assassin", (120, GetSpellsFromDB("Assassin")) }
-            };
+                using (SqlConnection conn = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=ExerciceHero;Trusted_Connection=true;"))
+                {
+                    conn.Open();
+                    string query = "SELECT Name, Health FROM Hero";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string heroName = reader["Name"].ToString() ?? "";
+                                int health = (int)reader["Health"];
+                                var spells = GetSpellsFromDB(heroName);
+                                heroes[heroName] = (health, spells);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show("Erreur BDD: " + ex.Message);
+            }
         }
 
         private List<string> GetSpellsFromDB(string heroName)
@@ -60,7 +98,7 @@ namespace HeroArena
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur BDD: " + ex.Message);
+                System.Windows.MessageBox.Show("Erreur BDD: " + ex.Message);
             }
 
             return spells;
@@ -98,7 +136,7 @@ namespace HeroArena
         {
             if (string.IsNullOrEmpty(selectedHero))
             {
-                MessageBox.Show("Choisis un héros d'abord!");
+                System.Windows.MessageBox.Show("Choisis un héros d'abord!");
                 return;
             }
 

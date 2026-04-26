@@ -18,7 +18,9 @@ namespace HeroArena
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Création de personnage - À implémenter!");
+            CreateCharacterWindow createWindow = new CreateCharacterWindow();
+            createWindow.Show();
+            this.Close();
         }
 
         private void QuitButton_Click(object sender, RoutedEventArgs e)

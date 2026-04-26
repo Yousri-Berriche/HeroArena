@@ -68,3 +68,8 @@ D:\c#\HeroArena\HeroArena\obj\Debug\net10.0-windows\HomeWindow.baml
 D:\c#\HeroArena\HeroArena\obj\Debug\net10.0-windows\LoginWindow.baml
 D:\c#\HeroArena\HeroArena\obj\Debug\net10.0-windows\HomeWindow.g.cs
 D:\c#\HeroArena\HeroArena\obj\Debug\net10.0-windows\LoginWindow.g.cs
+D:\c#\HeroArena\HeroArena\obj\Debug\net10.0-windows\CharacterQualityWindow.baml
+D:\c#\HeroArena\HeroArena\obj\Debug\net10.0-windows\CreateCharacterWindow.baml
+D:\c#\HeroArena\HeroArena\obj\Debug\net10.0-windows\CharacterQualityWindow.g.cs
+D:\c#\HeroArena\HeroArena\obj\Debug\net10.0-windows\CreateCharacterWindow.g.cs
+D:\c#\HeroArena\HeroArena\obj\Debug\net10.0-windows\HeroArena.sourcelink.json
